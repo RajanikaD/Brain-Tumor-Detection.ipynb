@@ -1,0 +1,10 @@
+tensorflow
+opencv-python
+numpy
+scikit-learn
+matplotlib
+imutils
+fastapi
+uvicorn
+python-multipart
+opencv-python-headless
