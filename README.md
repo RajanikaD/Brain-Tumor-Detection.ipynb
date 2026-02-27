@@ -93,3 +93,9 @@ CI/CD automation for container builds
 
 📜 Disclaimer
 This project is for educational and research demonstration purposes and is not intended for clinical diagnosis.
+
+---
+
+## Run with Docker
+docker build -t brain-tumor-api .
+docker run -p 8000:8000 brain-tumor-api
