@@ -1,32 +1,87 @@
-# 🧠 Brain Tumor Detection using CNN
+# 🧠 Brain Tumor Detection API (Containerized ML Inference Service)
 
-A deep learning-based solution to detect brain tumors from MRI images using Convolutional Neural Networks (CNNs). This project demonstrates preprocessing, training, evaluation, and visualization of a CNN model for binary image classification.
+An end-to-end medical image classification system for detecting brain tumors from MRI scans.  
+The project includes a custom CNN architecture, contour-based preprocessing, and a production-style FastAPI deployment wrapped in a Docker container.
 
 ---
 
-## 🔍 Problem Statement
+## 🚀 Overview
 
-Brain tumors are one of the most life-threatening conditions. Early and accurate detection can improve diagnosis and treatment planning. This project aims to build a CNN classifier that can distinguish between **tumorous** and **non-tumorous** brain MRI scans.
+This project implements a binary classification pipeline (Tumor / No Tumor) using TensorFlow and OpenCV-based preprocessing.  
+
+Unlike a notebook-based prototype, this version modularizes training, preprocessing, and inference, and exposes the trained model as a REST API suitable for deployment.
+
+---
+
+## 🧩 System Architecture
+
+**Pipeline:**
+
+MRI Image → Contour-Based Cropping (OpenCV) → Resize & Normalize → CNN Inference → REST API Response
+
+### Components
+
+- Custom CNN model for binary classification
+- Contour-based brain region isolation
+- TensorFlow model persistence (`.h5`)
+- FastAPI inference service
+- Swagger-based interactive API docs
+- Docker containerization for reproducible deployment
 
 ---
 
 ## 🧠 Model Architecture
 
-- CNN with multiple convolutional + pooling layers
-- ReLU activation and dropout for regularization
-- Binary classification using Sigmoid output
-- Optimized with Adam & Binary Cross-Entropy Loss
+- Convolution + pooling layers
+- ReLU activation
+- Binary classification with sigmoid output
+- Optimized using Adam + Binary Cross-Entropy
+
+Validation Accuracy: ~84% on held-out MRI dataset
 
 ---
 
-## 🚀 Technologies Used
+## 📁 Project Structure
+brain-tumor-detection-v2/
+│
+├── train.py # Training pipeline
+├── model.py # CNN architecture
+├── preprocessing.py # Contour-based image processing
+├── inference.py # Standalone inference script
+├── app.py # FastAPI deployment wrapper
+├── brain_tumor_model.h5 # Trained model
+├── Dockerfile # Container specification
+└── requirements.txt
 
-| Type          | Tools/Frameworks                     |
-|---------------|--------------------------------------|
-| Language      | Python                               |
-| ML Framework  | TensorFlow / Keras                   |
-| Data Handling | NumPy, Pandas                        |
-| Visualization | Matplotlib, Seaborn                  |
-| Notebook      | Jupyter / Colab                      |
 
 ---
+
+🔬 Engineering Highlights
+Converted experimental notebook workflow into modular production-ready Python modules.
+Implemented contour-based preprocessing to isolate relevant anatomical regions before inference.
+Deployed trained TensorFlow model as a REST microservice using FastAPI.
+Containerized the full inference stack using Docker for environment reproducibility.
+Resolved Linux-level OpenCV dependencies inside container runtime.
+
+---
+
+📌 Key Technologies
+Python
+TensorFlow / Keras
+OpenCV
+FastAPI
+Docker
+Uvicorn
+
+---
+
+🧪 Future Improvements
+ONNX model export for lightweight inference
+GPU-enabled container runtime
+Model performance monitoring integration
+CI/CD automation for container builds
+
+---
+
+📜 Disclaimer
+This project is for educational and research demonstration purposes and is not intended for clinical diagnosis.
