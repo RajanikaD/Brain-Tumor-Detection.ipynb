@@ -44,13 +44,21 @@ Validation Accuracy: ~84% on held-out MRI dataset
 ## 📁 Project Structure
 brain-tumor-detection-v2/
 │
+
 ├── train.py # Training pipeline
+
 ├── model.py # CNN architecture
+
 ├── preprocessing.py # Contour-based image processing
+
 ├── inference.py # Standalone inference script
+
 ├── app.py # FastAPI deployment wrapper
+
 ├── brain_tumor_model.h5 # Trained model
+
 ├── Dockerfile # Container specification
+
 └── requirements.txt
 
 
